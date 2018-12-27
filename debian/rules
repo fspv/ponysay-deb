@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+export PYBUILD_BUILD_ARGS=--freedom=strict --everything --prefix=/usr --dest-dir=debian/ponysay --with-pdf=debian/ponysay/usr/share/doc/ponysay
+
+%:
+	dh $@  --with python3 --buildsystem=pybuild
+
+# FIXME: overrides default distutils install command since it adds
+# --root argument not supported by ponysay setup.py
+override_dh_auto_install:
+	python3 $(CURDIR)/setup.py install ${PYBUILD_BUILD_ARGS}
+
+get-orig-source:
+	uscan --verbose --download \
+		--download-version $(shell dpkg-parsechangelog -S Version | cut -f 1 -d '-')
+	tar -zxvf ../ponysay_$(shell dpkg-parsechangelog -S Version | cut -f 1 -d '-').orig.tar.gz \
+		-C . --strip 1
