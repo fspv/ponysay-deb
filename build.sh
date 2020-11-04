@@ -2,6 +2,11 @@
 
 set -uex
 
+# Copy gnupg data into the right place
+# NOTE: your local GPG keyring should be GPG2
+cp -R /tmp/host_gnupg /root/.gnupg
+chown -R root:root /root/.gnupg
+
 # FIXME: use absolute paths
 cd /build/ponysay-deb/
 
