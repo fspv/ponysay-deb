@@ -1,4 +1,4 @@
-== How to build
+## How to build
 
 Setup your PPA repo and GPG key.
 
