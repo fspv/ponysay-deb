@@ -6,7 +6,7 @@ VER=$1
 BUILD=$2
 EXTRA_RUN_OPTS=$3
 
-for DIST in bionic focal groovy
+for DIST in bionic focal impish jammy
 do
     sudo docker build \
         -t ponysay-deb:${DIST} \
