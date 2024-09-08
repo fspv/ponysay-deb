@@ -6,6 +6,7 @@ FROM ubuntu:${DIST}
 RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime
 RUN echo UTC > /etc/timezone
 
+RUN echo "MIRRORSITE=http://archive.ubuntu.com/ubuntu" > /etc/pbuilderrc
 RUN apt-get update; \
     apt-get install -y pbuilder aptitude gnupg2
 

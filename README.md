@@ -6,7 +6,7 @@ Change DEBEMAIL and PPA in upload.sh.
 
 Run it with 3 params like this:
 ```
-./upload.sh 3.0.2 1 ""
+./upload.sh 3.0.3 1 ""
 ```
 
 First param is release version from here https://github.com/erkin/ponysay/releases
